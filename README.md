@@ -1,17 +1,15 @@
-### Hi, I'm Martín 👋
+# Martín Minghetti
 
-I build agentic products for messy real workflows: communication, research, operations, and review.
+📍 Bariloche, Argentina · 🤖 AI-native product builder
 
-Based in Bariloche, Argentina. Background in EventTech SaaS (AirLST GmbH). Now focused on AI-native product development.
+I build multi-agent systems that automate real workflows — sales research, guest communication, team coordination. Direct SDK, no frameworks.
 
-**Stack:** Python · FastAPI · Claude API · Next.js · Supabase · Vercel · Railway
+Previously: AirLST GmbH (EventTech SaaS, 30K+ events, 20M+ participants).
 
----
+## Current Projects
 
-### Current Projects
+🔍 **[SDR Swarm](https://github.com/martin-minghetti/sdr-swarm)** — 4-agent pipeline that researches a company, analyzes the opportunity, drafts personalized outreach, and scores quality. ~$0.12/run.
 
-🔍 **[SDR Swarm](https://github.com/martin-minghetti/sdr-swarm)** — Multi-agent AI sales research pipeline. 4 agents research, analyze, draft outreach, and score quality in under 30 seconds.
+💬 **[WhatsApp AI Receptionist](https://github.com/martin-minghetti/whatsapp-ai-receptionist)** — WhatsApp bot that handles reservations and books appointments via Google Calendar. FastAPI + Claude.
 
-💬 **[WhatsApp AI Receptionist](https://github.com/martin-minghetti/whatsapp-ai-receptionist)** — AI-powered WhatsApp bot that handles reservations and books appointments via Google Calendar. Built with FastAPI + Claude.
-
-⚡ **[Conversation-to-Action](https://github.com/martin-minghetti/conversation-to-action)** — Turn messy Slack, Discord, and WhatsApp threads into structured work items in Linear and Notion.
+⚡ **[Conversation-to-Action](https://github.com/martin-minghetti/conversation-to-action)** — Turns messy Slack/Discord/WhatsApp threads into structured work items in Linear and Notion.
