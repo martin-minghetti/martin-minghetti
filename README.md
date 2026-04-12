@@ -13,3 +13,5 @@ Previously: AirLST GmbH (EventTech SaaS, 30K+ events, 20M+ participants).
 💬 **[WhatsApp AI Receptionist](https://github.com/martin-minghetti/whatsapp-ai-receptionist)** — WhatsApp bot that handles reservations and books appointments via Google Calendar. FastAPI + Claude.
 
 ⚡ **[Conversation-to-Action](https://github.com/martin-minghetti/conversation-to-action)** — Turns messy Slack/Discord/WhatsApp threads into structured work items in Linear and Notion.
+
+🧾 **[Invoice Processor](https://github.com/martin-minghetti/invoice-processor)** — AI-powered invoice processing with Claude Vision extraction, anomaly detection, and human-in-the-loop review queue.
