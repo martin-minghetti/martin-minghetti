@@ -10,7 +10,7 @@ Previously: AirLST GmbH (EventTech SaaS, 30K+ events, 20M+ participants).
 
 🔍 **[SDR Swarm](https://github.com/martin-minghetti/sdr-swarm)** — 4-agent pipeline that researches a company, analyzes the opportunity, drafts personalized outreach, and scores quality. ~$0.12/run.
 
-🔬 **[Code Review Orchestrator](https://github.com/martin-minghetti/code-review-orchestrator)** — Paste a GitHub PR URL and 4 AI agents review it in parallel — security, impact analysis, test gaps, and documentation. Unified report with evidence-backed findings.
+🔬 **[Code Review Orchestrator](https://github.com/martin-minghetti/code-review-orchestrator)** · [live demo](https://code-review-orchestrator.vercel.app) — Paste a GitHub PR URL and 4 AI agents review it in parallel — security, impact analysis, test gaps, and documentation. Unified report with evidence-backed findings.
 
 💬 **[WhatsApp AI Receptionist](https://github.com/martin-minghetti/whatsapp-ai-receptionist)** — WhatsApp bot that handles reservations and books appointments via Google Calendar. FastAPI + Claude.
 
