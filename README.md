@@ -33,10 +33,11 @@ Every project here follows three principles:
 | [**InvoiceAI**](https://github.com/martin-minghetti/invoice-processor) | 5-stage pipeline: Vision extraction → Zod validation → fuzzy PO matching → anomaly detection → human review queue. 6 anomaly rules, ships with sample invoices. | Vision extraction + rule engine | Next.js 16, Claude Vision, Drizzle/SQLite |
 | [**RivalSight**](https://github.com/martin-minghetti/rivalsight) | Competitive intelligence monitor — snapshots pages with Playwright, extracts structured data via Claude, diffs against previous snapshots, and scores threats deterministically. Webhooks for medium+ alerts. | Playwright + Claude extraction + scoring rules | Next.js 16, Playwright, Drizzle/SQLite |
 
-### Workflow Automation
+### Monitoring & Automation
 
 | Project | What it does | Stack |
 |---------|-------------|-------|
+| [**modelsentry**](https://github.com/martin-minghetti/modelsentry) | AI early warning system — scrapes 8 RSS feeds and diffs 5 provider pages daily, filters with Gemini, serves a static dashboard + RSS feed. Zero cost, runs entirely on GitHub infrastructure. [Live dashboard](https://martin-minghetti.github.io/modelsentry/). | TypeScript, Gemini API, GitHub Actions, GitHub Pages |
 | [**WhatsApp AI Receptionist**](https://github.com/martin-minghetti/whatsapp-ai-receptionist) | Conversational appointment booking via WhatsApp. Checks real-time Google Calendar availability, handles cancellations, transcribes voice messages via Whisper. Config-driven — new clients onboarded via YAML, no code changes. | FastAPI, Claude, Redis, Google Calendar, Mercado Pago |
 | [**Conversation-to-Action**](https://github.com/martin-minghetti/conversation-to-action) | Watches Slack, Discord, and WhatsApp threads — extracts bugs, features, tasks, and decisions with Claude. Deduplicates against your Linear/Notion backlog. Team approves or discards via in-channel buttons. ~$0.03-0.05 per thread. | Next.js 15, Supabase Realtime, Railway |
 
@@ -60,20 +61,21 @@ Typical cost per run:
 | Code Review Orchestrator | ~$0.10-0.20 | Sonnet for security/impact, Haiku for tests/docs |
 | Conversation-to-Action | ~$0.03-0.05 | Sonnet for extraction per 10-20 message thread |
 | InvoiceAI | ~$0.05-0.10 | Vision API per invoice |
+| modelsentry | $0.00 | Gemini Flash-Lite free tier, GitHub Actions free for public repos |
 
 ---
 
 ## Tech Stack
 
 ```
-AI           → Anthropic Claude (direct SDK), Claude Vision, Vercel AI SDK
+AI           → Anthropic Claude (direct SDK), Claude Vision, Vercel AI SDK, Gemini API
 Backend      → FastAPI (Python) · Next.js API Routes (TypeScript)
 Frontend     → Next.js App Router · Tailwind CSS v4 · shadcn/ui
 Data         → Supabase · SQLite/Drizzle · Redis
 Validation   → Zod
-Infra        → Vercel · Railway
+Infra        → Vercel · Railway · GitHub Actions/Pages
 Testing      → Vitest · Pytest
-Scraping     → Playwright · BeautifulSoup
+Scraping     → Playwright · BeautifulSoup · cheerio
 Integrations → WhatsApp Business API · Google Calendar · Mercado Pago
                Slack · Discord · Linear · Notion · Apollo · Tavily
 ```
