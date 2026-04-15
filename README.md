@@ -31,6 +31,7 @@ Every project here follows three principles:
 | [**SDR Swarm**](https://github.com/martin-minghetti/sdr-swarm) | B2B sales research — from company URL to scored outreach draft in 15-30s. Researcher fetches from Tavily, homepage scraper, and Apollo in parallel. | 4 sequential (researcher → analyst → writer → scorer) | FastAPI, Next.js 16, Supabase, SSE streaming |
 | [**Code Review Orchestrator**](https://github.com/martin-minghetti/code-review-orchestrator) | Paste a GitHub PR URL — 4 agents review in parallel. Every finding pinned to file + line with evidence and concrete fix. [Live demo](https://code-review-orchestrator.vercel.app). | 4 parallel (security, impact, test gaps, docs) | Next.js 16, Octokit, Vercel AI SDK, shadcn/ui |
 | [**InvoiceAI**](https://github.com/martin-minghetti/invoice-processor) | 5-stage pipeline: Vision extraction → Zod validation → fuzzy PO matching → anomaly detection → human review queue. 6 anomaly rules, ships with sample invoices. | Vision extraction + rule engine | Next.js 16, Claude Vision, Drizzle/SQLite |
+| [**GTM Briefing Copilot**](https://github.com/martin-minghetti/gtm-briefing-copilot) | Paste a company URL → verified GTM brief in 30s. Sequential pipeline: scrape → extract facts → analyze → messaging → verify. Evidence grounding with fact IDs, CRM-ready output. [Live demo](https://gtm-briefing-copilot.vercel.app). | 4 sequential (extract → analyze → messaging → verify) | Next.js 16, Vercel AI SDK, cheerio, shadcn/ui |
 | [**RivalSight**](https://github.com/martin-minghetti/rivalsight) | Competitive intelligence monitor — snapshots pages with Playwright, extracts structured data via Claude, diffs against previous snapshots, and scores threats deterministically. Webhooks for medium+ alerts. | Playwright + Claude extraction + scoring rules | Next.js 16, Playwright, Drizzle/SQLite |
 
 ### Monitoring & Automation
@@ -60,6 +61,7 @@ Typical cost per run:
 | SDR Swarm | ~$0.08-0.15 | Sonnet for research/analysis/writing, Haiku for scoring |
 | Code Review Orchestrator | ~$0.10-0.20 | Sonnet for security/impact, Haiku for tests/docs |
 | Conversation-to-Action | ~$0.03-0.05 | Sonnet for extraction per 10-20 message thread |
+| GTM Briefing Copilot | ~$0.06-0.12 | Sonnet x3 for extraction/analysis/messaging, Haiku for verification |
 | InvoiceAI | ~$0.05-0.10 | Vision API per invoice |
 | modelsentry | $0.00 | Gemini Flash-Lite free tier, GitHub Actions free for public repos |
 
