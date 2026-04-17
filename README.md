@@ -38,7 +38,7 @@ Every project here follows three principles:
 
 | Project | What it does | Stack |
 |---------|-------------|-------|
-| [**modelsentry**](https://github.com/martin-minghetti/modelsentry) | AI early warning system — scrapes 8 RSS feeds and diffs 5 provider pages daily, filters with Gemini, serves a static dashboard + RSS feed. Zero cost, runs entirely on GitHub infrastructure. [Live dashboard](https://martin-minghetti.github.io/modelsentry/). | TypeScript, Gemini API, GitHub Actions, GitHub Pages |
+| [**modelsentry**](https://github.com/martin-minghetti/modelsentry) | AI early warning system — scrapes 8 RSS feeds and diffs 5 provider pages daily, classifies with Gemini, serves a static dashboard with weekly timeline, provider activity trends, and RSS feed. 159 tests, Lighthouse 100/94/96/100. Zero cost. [Live dashboard](https://martin-minghetti.github.io/modelsentry/). | TypeScript, Gemini API, GitHub Actions, GitHub Pages |
 | [**WhatsApp AI Receptionist**](https://github.com/martin-minghetti/whatsapp-ai-receptionist) | Conversational appointment booking via WhatsApp. Checks real-time Google Calendar availability, handles cancellations, transcribes voice messages via Whisper. Config-driven — new clients onboarded via YAML, no code changes. | FastAPI, Claude, Redis, Google Calendar, Mercado Pago |
 | [**Conversation-to-Action**](https://github.com/martin-minghetti/conversation-to-action) | Watches Slack, Discord, and WhatsApp threads — extracts bugs, features, tasks, and decisions with Claude. Deduplicates against your Linear/Notion backlog. Team approves or discards via in-channel buttons. ~$0.03-0.05 per thread. | Next.js 15, Supabase Realtime, Railway |
 
