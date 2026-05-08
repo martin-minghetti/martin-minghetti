@@ -48,6 +48,19 @@ Every project here follows three principles:
 |---------|-------------|-------|
 | [**SkillCam**](https://github.com/martin-minghetti/skillcam) | Turn successful AI agent runs into reusable markdown skills. Reads native session logs from Claude Code and Codex CLI, distills them into SKILL.md files. Works with any LLM or without one (`--no-llm` mode). | TypeScript, npm package — [`npx skillcam distill --latest`](https://www.npmjs.com/package/skillcam) |
 
+### Commercial Demos — Portfolio AR Kit
+
+Production-grade fullstack apps shipped fast. Built as showcase pieces for Argentine SMB clients (alternative to Tiendanube / Booking-style SaaS). Each one ships with a `PAYMENT_MODE=simulated|production` flag so anyone can test the full Mercado Pago flow without a card. Honest wall-clock time tracked in `BUILD_LOG.md` per repo.
+
+| Project | What it does | Differentiator | Stack |
+|---------|-------------|----------------|-------|
+| [**Norhaven Lodge**](https://github.com/martin-minghetti/norhaven-lodge) | Boutique cabin booking site with date-overlap validation, Server Actions, transactional email, and AI-powered semantic search ("something for a couple, with lake view" → ranked cabins). [Live](https://norhaven-lodge.vercel.app). | MP Checkout Pro one-shot + Vercel AI SDK / Gemini 2.5 Flash semantic search | Next 16, Drizzle, Supabase, MP Checkout Pro, Resend |
+| [**Cohere**](https://github.com/martin-minghetti/cohere) | Membership platform for professionals (yoga / pilates / coaching) with monthly recurring billing. Customer portal with real cancel / pause / resume, pro dashboard with active subs + MRR, multi-tenant simulated. [Live](https://cohere-six.vercel.app). | MP **Subscriptions** API (`preapproval_plan` + `preapproval`) + recurring webhook events | Next 16, Drizzle, Neon Postgres, MP Subscriptions, Resend |
+| [**Bosque**](https://github.com/martin-minghetti/bosque) | E-commerce demo for a Patagonian chocolatier — multi-item cart, shipping calc (3 zones × 3 carriers, derived from postal code), admin panel with order stats, transactional email post-payment. [Live](https://bosque-three.vercel.app). | Server-side cart with HMAC-signed `session_id` cookie + AR shipping engine (Andreani / Correo Argentino / OCA) | Next 16, Drizzle, Neon Postgres, MP Checkout Pro, Resend |
+| [**Sur41**](https://github.com/martin-minghetti/sur41) | Travel agency for Bariloche — 14 real excursions, native i18n (ES / EN / PT-BR), 96 SSG pages, AI-generated FLUX 1.1 Pro hero images. Booking flow with HMAC tokens, rate limiting, CSP/HSTS hardening. [Live](https://sur41.vercel.app). | App Router native i18n + Replicate FLUX image generation + production security headers | Next 16, Drizzle, Neon Postgres, MP Checkout Pro, Resend, Replicate |
+
+All four ship with Vitest unit tests and Playwright E2E specs. Webhooks validate HMAC SHA256, enforce timestamp freshness, and idempotency.
+
 ---
 
 ## BYOK — Bring Your Own Keys
@@ -71,14 +84,16 @@ Typical cost per run:
 
 ```
 AI           → Anthropic Claude (direct SDK), Claude Vision, Vercel AI SDK, Gemini API
-Backend      → FastAPI (Python) · Next.js API Routes (TypeScript)
-Frontend     → Next.js App Router · Tailwind CSS v4 · shadcn/ui
-Data         → Supabase · SQLite/Drizzle · Redis
+                Replicate (FLUX 1.1 Pro image gen)
+Backend      → FastAPI (Python) · Next.js API Routes + Server Actions (TypeScript)
+Frontend     → Next.js 16 App Router · Tailwind CSS v4 · shadcn/ui · native i18n
+Data         → Supabase · Neon Postgres · Drizzle ORM · SQLite · Redis
 Validation   → Zod
 Infra        → Vercel · Railway · GitHub Actions/Pages
-Testing      → Vitest · Pytest
+Testing      → Vitest · Playwright · Pytest
 Scraping     → Playwright · BeautifulSoup · cheerio
-Integrations → WhatsApp Business API · Google Calendar · Mercado Pago
+Payments     → Mercado Pago Checkout Pro · MP Subscriptions (preapproval) · HMAC webhooks
+Integrations → WhatsApp Business API · Google Calendar · Resend (transactional email)
                Slack · Discord · Linear · Notion · Apollo · Tavily
 ```
 
