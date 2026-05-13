@@ -54,12 +54,19 @@ Production-grade fullstack apps shipped fast. Built as showcase pieces for Argen
 
 | Project | What it does | Differentiator | Stack |
 |---------|-------------|----------------|-------|
+| [**Cumbre**](https://github.com/martin-minghetti/cumbre) | Craft brewery (Patagonia) with ERP-lite operations. Catalog, cart, MP Checkout Pro, full purchase flow end-to-end. Atomic order pipeline (TX with `SELECT FOR UPDATE` + FIFO stock allocator + idempotency by `mp_payment_id` UNIQUE), simulated payment flow, admin login. 55 unit + 5 Playwright E2E. CSP / HSTS hardening. [Live](https://cumbre-three.vercel.app). | Atomic stock-aware order pipeline (`applyOrderPaid`) + FIFO batch allocator + DB-enforced idempotency on `mp_payment_id` | Next 16, Drizzle, Neon Postgres, MP Checkout Pro, Resend |
 | [**Norhaven Lodge**](https://github.com/martin-minghetti/norhaven-lodge) | Boutique cabin booking site with date-overlap validation, Server Actions, transactional email, and AI-powered semantic search ("something for a couple, with lake view" → ranked cabins). [Live](https://norhaven-lodge.vercel.app). | MP Checkout Pro one-shot + Vercel AI SDK / Gemini 2.5 Flash semantic search | Next 16, Drizzle, Supabase, MP Checkout Pro, Resend |
 | [**Cohere**](https://github.com/martin-minghetti/cohere) | Membership platform for professionals (yoga / pilates / coaching) with monthly recurring billing. Customer portal with real cancel / pause / resume, pro dashboard with active subs + MRR, multi-tenant simulated. [Live](https://cohere-six.vercel.app). | MP **Subscriptions** API (`preapproval_plan` + `preapproval`) + recurring webhook events | Next 16, Drizzle, Neon Postgres, MP Subscriptions, Resend |
 | [**Bosque**](https://github.com/martin-minghetti/bosque) | E-commerce demo for a Patagonian chocolatier — multi-item cart, shipping calc (3 zones × 3 carriers, derived from postal code), admin panel with order stats, transactional email post-payment. [Live](https://bosque-three.vercel.app). | Server-side cart with HMAC-signed `session_id` cookie + AR shipping engine (Andreani / Correo Argentino / OCA) | Next 16, Drizzle, Neon Postgres, MP Checkout Pro, Resend |
 | [**Sur41**](https://github.com/martin-minghetti/sur41) | Travel agency for Bariloche — 14 real excursions, native i18n (ES / EN / PT-BR), 96 SSG pages, AI-generated FLUX 1.1 Pro hero images. Booking flow with HMAC tokens, rate limiting, CSP/HSTS hardening. [Live](https://sur41.vercel.app). | App Router native i18n + Replicate FLUX image generation + production security headers | Next 16, Drizzle, Neon Postgres, MP Checkout Pro, Resend, Replicate |
 
-All four ship with Vitest unit tests and Playwright E2E specs. Webhooks validate HMAC SHA256, enforce timestamp freshness, and idempotency.
+All five ship with Vitest unit tests and Playwright E2E specs. Webhooks validate HMAC SHA256, enforce timestamp freshness, and idempotency.
+
+### Vertical SaaS
+
+| Project | What it does | Stack |
+|---------|-------------|-------|
+| [**QuestBoard**](https://questboard-lake.vercel.app) | DDQ (Due Diligence Questionnaire) automation for SaaS mid-market. Upload security questionnaire (EDRM, CAIQ, SIG Lite), AI completes answers grounded in your knowledge base, flags GREEN / YELLOW / RED for review. Pipeline parallelized 5x. Tested on 75q EDRM and 52q CAIQ corpora. Source private. | Next.js 16, Vercel AI SDK, Neon pgvector, Claude API, Clerk, Stripe |
 
 ---
 
