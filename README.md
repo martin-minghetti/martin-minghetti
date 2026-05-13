@@ -62,12 +62,6 @@ Production-grade fullstack apps shipped fast. Built as showcase pieces for Argen
 
 All five ship with Vitest unit tests and Playwright E2E specs. Webhooks validate HMAC SHA256, enforce timestamp freshness, and idempotency.
 
-### Vertical SaaS
-
-| Project | What it does | Stack |
-|---------|-------------|-------|
-| [**QuestBoard**](https://questboard-lake.vercel.app) | DDQ (Due Diligence Questionnaire) automation for SaaS mid-market. Upload security questionnaire (EDRM, CAIQ, SIG Lite), AI completes answers grounded in your knowledge base, flags GREEN / YELLOW / RED for review. Pipeline parallelized 5x. Tested on 75q EDRM and 52q CAIQ corpora. Source private. | Next.js 16, Vercel AI SDK, Neon pgvector, Claude API, Clerk, Stripe |
-
 ---
 
 ## BYOK — Bring Your Own Keys
